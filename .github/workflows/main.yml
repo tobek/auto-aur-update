@@ -23,7 +23,15 @@ jobs:
         with:
           pkgname: ${{ matrix.PKGBUILDs }}
           pkgdir: ${{ matrix.PKGBUILDs }}
-          git_username: zzy-ac
-          git_email: 1304024959@qq.com
-          private_ssh_key: ${{ secrets.PRIVATE_SSH_KEY }}
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          
+          
+      - name: Publish AUR package
+        uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
+        with:
+          pkgname: koreader-bin
+          pkgbuild: ${{ matrix.PKGBUILDs }}/PKGBUILD
+          commit_username: ${{ secrets.AUR_USERNAME }}
+          commit_email: ${{ secrets.AUR_EMAIL }}
+          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+          commit_message: Update AUR package
+          ssh_keyscan_types: rsa,dsa,ecdsa,ed25519
