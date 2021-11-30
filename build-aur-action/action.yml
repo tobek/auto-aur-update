@@ -1,0 +1,30 @@
+name: 'Build AUR Package'
+branding:
+  icon: user-check
+  color: gray-dark
+inputs:
+  pkgdir:
+    description: 'AUR repository name to build'
+    required: true
+  pkgname:
+    description: 'AUR package / repository name'
+    required: true
+  git_username:
+    description: 'The user name for git config'
+    required: true
+  git_email:
+    description: 'The user email for git config'
+    required: true
+  private_ssh_key:
+    description: 'Your private ssh key with access to AUR repository.'
+    required: true
+    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.pkgdir }}
+    - ${{ inputs.pkgname }}
+    - ${{ inputs.git_username }}
+    - ${{ inputs.git_email }}
+    - ${{ inputs.private_ssh_key }}
