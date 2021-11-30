@@ -5,4 +5,4 @@ RUN date
 RUN pacman -Syu --noconfirm
 RUN pacman -S base-devel git openssh pacman-contrib jq curl --noconfirm
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"] 
+ENTRYPOINT ["bash /entrypoint.sh"] 
