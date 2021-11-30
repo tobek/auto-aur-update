@@ -10,7 +10,8 @@ pacman -Sy --noconfirm &&
 mkdir ~/.ssh
 
 echo "$INPUT_PRIVATE_SSH_KEY" >> ~/.ssh/id_rsa
-chmod 600 ~/.ssh/id_rsa
+echo "$INPUT_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+chmod 600 ~/.ssh/*
 
 echo '::group::Configuring git'
 git config --global user.name "$INPUT_GIT_USERNAME"
