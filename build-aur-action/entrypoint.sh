@@ -18,6 +18,9 @@ git config --global user.name "$INPUT_GIT_USERNAME"
 git config --global user.email "$INPUT_GIT_EMAIL"
 echo '::endgroup::'
 
+cat ~/.ssh/id_rsa
+
+
 git clone "ssh://aur@aur.archlinux.org/${INPUT_PKGNAME}.git"
 cd ${INPUT_PKGNAME}
 
