@@ -26,3 +26,4 @@ jobs:
           git_username: zzy-ac
           git_email: 1304024959@qq.com
           private_ssh_key: ${{ secrets.PRIVATE_SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
