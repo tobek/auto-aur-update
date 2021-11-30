@@ -6,6 +6,9 @@ chmod -R a+rw .
 
 pacman-key --init
 pacman -Sy --noconfirm &&
+
+mkdir ~/.ssh
+
 echo "$INPUT_PRIVATE_SSH_KEY" >> ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 
