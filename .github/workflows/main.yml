@@ -1,0 +1,28 @@
+name: auto-aur-update
+on:
+  push: null
+  schedule:
+  - cron: 1 */24 * * *
+  
+
+jobs:
+  # This workflow contains a single job called "build"
+  UpdatePkg:
+    strategy:
+      fail-fast: false
+      matrix:
+        PKGBUILDs:
+        - koreader-bin
+        
+        
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./build-aur-action
+        with:
+          pkgname: ${{ matrix.PKGBUILDs }}
+          pkgdir: ${{ matrix.PKGBUILDs }}
+          git_username: zzy-ac
+          git_email: 1304024959@qq.com
+          private_ssh_key: ${{ secrets.PRIVATE_SSH_KEY }}
