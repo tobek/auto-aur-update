@@ -6,8 +6,8 @@ chmod -R a+rw .
 
 pacman-key --init
 pacman -Sy --noconfirm &&
-echo "$INPUT_PRIVATE_SSH_KEY" >> ~./ssh/id_rsa
-chmod 600 ~./ssh/id_rsa
+echo "$INPUT_PRIVATE_SSH_KEY" >> ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa
 
 echo '::group::Configuring git'
 git config --global user.name "$INPUT_GIT_USERNAME"
