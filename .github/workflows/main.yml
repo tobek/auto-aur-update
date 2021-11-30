@@ -2,7 +2,7 @@ name: auto-aur-update
 on:
   push: null
   schedule:
-  - cron: 1 */8 * * *
+  - cron: 1 */12 * * *
   
 
 jobs:
