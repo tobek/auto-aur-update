@@ -18,7 +18,9 @@ inputs:
   private_ssh_key:
     description: 'Your private ssh key with access to AUR repository.'
     required: true
-    
+  known_hosts:
+    description: 'Youy known_hosts for aur'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -28,3 +30,4 @@ runs:
     - ${{ inputs.git_username }}
     - ${{ inputs.git_email }}
     - ${{ inputs.private_ssh_key }}
+    - ${{ inputs.known_hosts }}
