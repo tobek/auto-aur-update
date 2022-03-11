@@ -7,9 +7,17 @@ chmod -R a+rw .
 pacman-key --init
 pacman -Sy --noconfirm &&
 
-cd ${INPUT_PKGNAME}
+cd koreader-bin
 
 ver=$(curl -s https://api.github.com/repos/koreader/koreader/releases/latest | jq '.tag_name'|tr -d 'v"')
+sed -i "s/pkgver=.*/pkgver=$ver/" PKGBUILD
+sudo -u builder  updpkgsums
+
+rm koreader-$ver-amd64.deb
+
+cd koreader-bin
+
+ver=$(curl -s https://api.github.com/repos/Icalingua-plus-plus/Icalingua-plus-plus/releases/latest | jq '.tag_name'|tr -d 'v"')
 sed -i "s/pkgver=.*/pkgver=$ver/" PKGBUILD
 sudo -u builder  updpkgsums
 
