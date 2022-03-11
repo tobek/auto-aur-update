@@ -15,7 +15,7 @@ sudo -u builder  updpkgsums
 
 rm koreader-$ver-amd64.deb
 
-cd icalingua-plus-plus
+cd icalingua++
 
 ver_ica=$(curl -s https://api.github.com/repos/Icalingua-plus-plus/Icalingua-plus-plus/releases/latest | jq '.tag_name'|tr -d 'v"')
 sed -i "s/pkgver=.*/pkgver=$ver_ica/" PKGBUILD
