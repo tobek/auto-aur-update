@@ -13,6 +13,7 @@ jobs:
       matrix:
         PKGBUILDs:
         - koreader-bin
+        - icalingua-plus-plus
         
         
     runs-on: ubuntu-latest
