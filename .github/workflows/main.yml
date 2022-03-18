@@ -13,7 +13,7 @@ jobs:
       matrix:
         PKGBUILDs:
         - koreader-bin
-        - icalingua++
+        - icalingua-plus-plus
 
         
         
