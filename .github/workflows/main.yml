@@ -1,6 +1,7 @@
 name: auto-aur-update
 on:
-  push: null
+  watch:
+    types: [started]
   schedule:
   - cron: 1 */12 * * *
   
@@ -13,12 +14,13 @@ jobs:
       matrix:
         PKGBUILDs:
         - koreader-bin
-        - icalingua++
 
 
-        
-        
+
+
     runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id  # 自己点的 start
+        
 
     steps:
       - uses: actions/checkout@v2
