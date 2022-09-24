@@ -42,9 +42,12 @@ jobs:
           ssh_keyscan_types: rsa,dsa,ecdsa,ed25519
           allow_empty_commits: false
     
+  steps:
+      - name: Checkout
+        uses: actions/checkout@master
       - name: Make Time log #Api调用
         run: | 
-         echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log     
+          echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log     
       - name: Commit #上传新的refresh_token到仓库
         run: |
           git config --local user.email 1304024859@qq.com
@@ -52,5 +55,5 @@ jobs:
           git commit -m "update new time.log" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+         with:
+           github_token: ${{ secrets.GITHUB_TOKEN }}
