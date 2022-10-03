@@ -14,6 +14,8 @@ jobs:
       matrix:
         PKGBUILDs:
         - koreader-bin
+        - listen1
+        - listen1-electron
 
 
 
