@@ -33,4 +33,12 @@ sudo -u builder  updpkgsums
 rm listen1_$ver_lis_linux_amd64.deb
 cd -
 
+cd listen1-electron
+sed -i "s/pkgver=.*/pkgver=$ver_lis/" PKGBUILD
+sudo -u builder  updpkgsums
+cd -
+
+
+
+
 echo OK
