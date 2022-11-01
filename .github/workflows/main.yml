@@ -14,9 +14,9 @@ jobs:
       matrix:
         PKGBUILDs:
         - koreader-bin
-#        - listen1
-#        - listen1-electron
-#        - clash-for-windows-electron-zh
+        - listen1
+        - listen1-electron
+        - clash-for-windows-electron-zh
 
 
 
@@ -45,21 +45,21 @@ jobs:
           ssh_keyscan_types: rsa,dsa,ecdsa,ed25519
           allow_empty_commits: false
     
-#  Task:
-#    runs-on: ubuntu-latest
-#    steps:
-#    - name: Checkout
-#      uses: actions/checkout@master
-#    - name: Make Time log #Api调用
-#      run: | 
-#        echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log     
-#    - name: Commit #上传新的refresh_token到仓库
-#      run: |
-#        git config --local user.email 1304024859@qq.com
-#        git config --local user.name zzy-ac
-#        git add .
-#        git commit -m "update new time.log" -a
-#    - name: Push changes
-#      uses: ad-m/github-push-action@master
-#      with:
-#        github_token: ${{ secrets.GITHUB_TOKEN }}
+  Task:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Make Time log #Api调用
+      run: | 
+        echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log     
+    - name: Commit #上传新的refresh_token到仓库
+      run: |
+        git config --local user.email 1304024859@qq.com
+        git config --local user.name zzy-ac
+        git add .
+        git commit -m "update new time.log" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
