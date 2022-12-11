@@ -47,5 +47,13 @@ sudo -u builder  updpkgsums
 rm clash-for-windows-electron-zh-${ver_cfw}-x86_64-linux.tar.gz app.asar
 cd -
 
+cd sabaki-electron
+
+ver_cfw=$(curl -s https://api.github.com/repos/SabakiHQ/Sabaki/releases/latest | jq '.tag_name'|tr -d 'v"')
+sed -i "s/pkgver=.*/pkgver=$ver_sbk/" PKGBUILD
+sudo -u builder  updpkgsums
+
+rm v${ver_cfw}.tar.gz
+cd -
 
 echo OK
