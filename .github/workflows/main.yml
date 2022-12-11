@@ -17,6 +17,7 @@ jobs:
         - listen1
         - listen1-electron
         - clash-for-windows-electron-zh
+        - sabaki-electron
 
 
 
