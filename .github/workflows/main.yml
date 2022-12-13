@@ -14,6 +14,7 @@ jobs:
       matrix:
         PKGBUILDs:
         - koreader-bin
+        - Icalingua++
         - listen1
         - listen1-electron
         - clash-for-windows-electron-zh
