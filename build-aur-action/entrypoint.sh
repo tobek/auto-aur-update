@@ -16,14 +16,14 @@ sudo -u builder  updpkgsums
 rm koreader-$ver_ko-amd64.deb
 cd -
 
-cd icalingua++
+#cd icalingua++
 
-ver_ica=$(curl -s https://api.github.com/repos/Icalingua-plus-plus/Icalingua-plus-plus/releases/latest | jq '.tag_name'|tr -d 'v"')
-sed -i "s/pkgver=.*/pkgver=$ver_ica/" PKGBUILD
-sudo -u builder  updpkgsums
+#ver_ica=$(curl -s https://api.github.com/repos/Icalingua-plus-plus/Icalingua-plus-plus/releases/latest | jq '.tag_name'|tr -d 'v"')
+#sed -i "s/pkgver=.*/pkgver=$ver_ica/" PKGBUILD
+#sudo -u builder  updpkgsums
 
-rm app-aarch64-$ver_ica.asar app-x86_64-$ver_ica.asar 
-cd -
+#rm app-aarch64-$ver_ica.asar app-x86_64-$ver_ica.asar 
+#cd -
 
 
 
