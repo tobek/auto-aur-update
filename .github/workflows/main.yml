@@ -22,12 +22,6 @@ jobs:
         - listen1-electron
         - clash-for-windows-electron-zh
         - sabaki-electron
-        SourceNames:
-        - koreader/koreader
-#        - Icalingua-plus-plus/Icalingua-plus-plus
-        - listen1/listen1_desktop
-        - Fndroid/clash_for_windows_pkg
-        - SabakiHQ/Sabaki
 
 
 
@@ -41,7 +35,6 @@ jobs:
         with:
           pkgname: ${{ matrix.PKGBUILDs }}
           pkgdir: ${{ matrix.PKGBUILDs }}
-          sourcename: ${{ matrix.SourceNames }}
           
       - name: Publish AUR package
         uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
