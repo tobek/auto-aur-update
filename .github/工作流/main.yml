@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./build-aur-action
         with:
-          pkgname: ${{ matrix.SouceNames }}
+          soucename: ${{ matrix.SouceNames }}
         
 
   UpdatePkg:
