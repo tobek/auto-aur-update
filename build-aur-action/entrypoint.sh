@@ -1,6 +1,6 @@
 #!/bin/bash
 
-soucename=$1
+$pkgname=$1
 pkgdir=$1
 
 useradd builder -m
@@ -10,13 +10,24 @@ chmod -R a+rw .
 pacman-key --init
 pacman -Sy --noconfirm &&
 
+if $pkgname=koreder-bin
+  do $sourcename=koreader/koreader
+elif $pkgname=listen1
+  do $sourcename=listen1/listen1_desktop
+elif $pkgname=listen1-electron
+  do $sourcename=listen1/listen1_desktop
+elif $pkgname=clash-for-windows-electron-zh
+  do $sourcename=Fndroid/clash_for_windows_pkg
+else $pkgname=sabaki-electron
+  do $sourcename=SabakiHQ/Sabaki
+
 cd $pkgdir
 
 ver=$(curl -s https://api.github.com/repos/$sourcename/releases/latest | jq '.tag_name'|tr -d 'v"')
 sed -i "s/pkgver=.*/pkgver=$ver/" PKGBUILD
 
 ls > ../temp
-sudo -u builder  updpkgsums
+sudo -u builder updpkgsums
 ls > ../temp1
 rmfiles=$(comm -3 ../temp ../temp1)
 rm $rmfiles
