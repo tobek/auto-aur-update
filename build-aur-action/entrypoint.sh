@@ -10,6 +10,6 @@ chmod -R a+rw .
 pacman-key --init
 pacman -Sy --noconfirm &&
 
-bash ${pkgname}.sh
+bash scripts/${pkgname}.sh
 
 #echo OK
