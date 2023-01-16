@@ -10,16 +10,16 @@ chmod -R a+rw .
 pacman-key --init
 pacman -Sy --noconfirm &&
 
-if $pkgname=koreder-bin
+if (($pkgname=koreder-bin))
 then
   $sourcename=koreader/koreader
-elif $pkgname=listen1
+elif (($pkgname=listen1))
 then
   $sourcename=listen1/listen1_desktop
-elif $pkgname=listen1-electron
+elif (($pkgname=listen1-electron))
 then
   $sourcename=listen1/listen1_desktop
-elif $pkgname=clash-for-windows-electron-zh
+elif (($pkgname=clash-for-windows-electron-zh))
 then
   $sourcename=Fndroid/clash_for_windows_pkg
 else 
