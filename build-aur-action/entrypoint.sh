@@ -11,15 +11,20 @@ pacman-key --init
 pacman -Sy --noconfirm &&
 
 if $pkgname=koreder-bin
-  do $sourcename=koreader/koreader
+then
+  $sourcename=koreader/koreader
 elif $pkgname=listen1
-  do $sourcename=listen1/listen1_desktop
+then
+  $sourcename=listen1/listen1_desktop
 elif $pkgname=listen1-electron
-  do $sourcename=listen1/listen1_desktop
+then
+  $sourcename=listen1/listen1_desktop
 elif $pkgname=clash-for-windows-electron-zh
-  do $sourcename=Fndroid/clash_for_windows_pkg
-else $pkgname=sabaki-electron
-  do $sourcename=SabakiHQ/Sabaki
+then
+  $sourcename=Fndroid/clash_for_windows_pkg
+else 
+  $sourcename=SabakiHQ/Sabaki
+fi
 
 cd $pkgdir
 
