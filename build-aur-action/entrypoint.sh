@@ -14,11 +14,6 @@ cd $pkgdir
 
 ver=$(curl -s https://api.github.com/repos/$soucename/releases/latest | jq '.tag_name'|tr -d 'v"')
 sed -i "s/pkgver=.*/pkgver=$ver/" PKGBUILD
-ls > ../temp
-sudo -u builder  updpkgsums
-ls > ../temp1
-rmfiles=$(comm -3 ../temp ../temp1)
-rm $rmfiles
 cd -
 
 #cd icalingua++
