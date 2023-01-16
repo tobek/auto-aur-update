@@ -8,6 +8,23 @@ on:
 
 jobs:
   # This workflow contains a single job called "build"
+  SurceNme:
+    strategy:
+      fail-fast: false
+      matrix:
+        SurceNames:
+        - koreader/koreader
+#        - Icalingua-plus-plus/Icalingua-plus-plus
+        - listen1/listen1_desktop
+        - Fndroid/clash_for_windows_pkg
+        - SabakiHQ/Sabaki
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./build-aur-action
+        with:
+          pkgname: ${{ matrix.SouceNames }}
+
   UpdatePkg:
     strategy:
       fail-fast: false
