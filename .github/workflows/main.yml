@@ -4,6 +4,7 @@ on:
     types: [started]
   schedule:
   - cron: "30 2 * * *"
+  workflow_dispatch:
   
 jobs:
   # This workflow contains a single job called "build"
