@@ -5,30 +5,18 @@ on:
   schedule:
   - cron: "30 2 * * *"
   
-
 jobs:
   # This workflow contains a single job called "build"
-
-        
-
   UpdatePkg:
     strategy:
       fail-fast: false
       matrix:
         PKGBUILDs:
-        - koreader-bin
-#        - icalingua++
-        - listen1
-        - listen1-electron
-        - clash-for-windows-electron-zh
-        - sabaki-electron
-
-
+        - cursor-appimage
 
     runs-on: ubuntu-latest
 #    if: github.event.repository.owner.id == github.event.sender.id  # 自己点的 start
         
-
     steps:
       - uses: actions/checkout@v2
       - uses: ./build-aur-action
@@ -37,7 +25,7 @@ jobs:
           pkgdir: ${{ matrix.PKGBUILDs }}
           
       - name: Publish AUR package
-        uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
+        uses: KSXGitHub/github-actions-deploy-aur@v2.7.0
         with:
           pkgname: ${{ matrix.PKGBUILDs }}
           pkgbuild: ${{ matrix.PKGBUILDs }}/PKGBUILD
@@ -55,11 +43,11 @@ jobs:
       uses: actions/checkout@master
     - name: Make Time log #Api调用
       run: | 
-        echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log     
+        echo `date +"%Y-%m-%d %H:%M:%S"` begin >> time.log     
     - name: Commit #上传新的refresh_token到仓库
       run: |
-        git config --local user.email 1304024859@qq.com
-        git config --local user.name zzy-ac
+        git config --local user.email zhaoyuanpan@gmail.com
+        git config --local user.name TimeTrap
         git add .
         git commit -m "update new time.log" -a
     - name: Push changes
