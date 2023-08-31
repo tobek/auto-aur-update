@@ -3,7 +3,7 @@ on:
   watch:
     types: [started]
   schedule:
-  - cron: "30 2 * * *"
+  - cron: "30 2/18 * * *"
   workflow_dispatch:
   
 jobs:
@@ -42,8 +42,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-      with:
-         fetch-depth: 0
     - name: Make Time log #Api调用
       run: | 
         echo `date +"%Y-%m-%d %H:%M:%S"` begin >> time.log     
